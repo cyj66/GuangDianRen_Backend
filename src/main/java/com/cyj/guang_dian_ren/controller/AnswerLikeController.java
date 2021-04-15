@@ -33,9 +33,11 @@ public class AnswerLikeController {
     public void save(@RequestBody Map<String,Object> para){
         String username=(String)para.get("username");
         Integer answerId= (Integer) para.get("answerId");
-        AnswerLike answerLike = new AnswerLike(answerId,username);
+        String date=(String)para.get("date");
+        AnswerLike answerLike = new AnswerLike(answerId,username,date);
         answerLike.setUsername(username);
         answerLike.setAnswerId(answerId);
+        answerLike.setDate(date);
         iAnswerLikeService.save(answerLike);
     }
 

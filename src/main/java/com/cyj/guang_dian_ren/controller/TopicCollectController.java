@@ -32,10 +32,10 @@ public class TopicCollectController {
     public void save(@RequestBody Map<String,Object> para){
         String username=(String)para.get("username");
         Integer topicId= (Integer) para.get("topicId");
-        TopicCollect TopicCollect = new TopicCollect(topicId,username);
-        TopicCollect.setUsername(username);
-        TopicCollect.setTopicId(topicId);
-        iTopicCollectService.save(TopicCollect);
+        TopicCollect topicCollect = new TopicCollect(topicId,username);
+        topicCollect.setUsername(username);
+        topicCollect.setTopicId(topicId);
+        iTopicCollectService.save(topicCollect);
     }
 
     @DeleteMapping("/remove")
@@ -44,7 +44,7 @@ public class TopicCollectController {
         Integer topicId= (Integer) para.get("topicId");
         Map<String,Object> removeTopicCollect = new HashMap<>();
         removeTopicCollect.put("username", username);
-        //注意不是“TopicId”,要和数据表字段名保持一致
+        //注意不是“topicId”,要和数据表字段名保持一致
         removeTopicCollect.put("topic_id", topicId);
         iTopicCollectService.removeByMap(removeTopicCollect);
     }

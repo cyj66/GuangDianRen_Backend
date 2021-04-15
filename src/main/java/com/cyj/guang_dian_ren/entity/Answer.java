@@ -30,6 +30,15 @@ public class Answer implements Serializable {
 
     private Integer topicId;
 
-    private LocalDate date;
+    private String date;
 
+    public Answer(Integer answerId, String content, String username,Integer topicId,String date){
+        this.answerId=answerId;
+        this.content=content;
+        this.username=username;
+        this.topicId=topicId;
+        this.date=date;
+    }
+
+    public Answer(){}
 }

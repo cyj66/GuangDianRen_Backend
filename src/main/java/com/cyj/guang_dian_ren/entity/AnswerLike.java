@@ -24,8 +24,13 @@ public class AnswerLike implements Serializable {
 
     private String username;
 
-    public AnswerLike(Integer answerId, String username) {
+    private String date;
+
+    public AnswerLike(Integer answerId, String username,String date) {
         this.username=username;
         this.answerId=answerId;
+        this.date=date;
     }
+
+    public AnswerLike(){}
 }

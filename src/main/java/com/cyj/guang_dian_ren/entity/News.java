@@ -33,7 +33,7 @@ public class News implements Serializable {
 
     private String content;
 
-    private LocalDate date;
+    private String date;
 
     @TableField("isSchool")
     private Boolean isSchool;

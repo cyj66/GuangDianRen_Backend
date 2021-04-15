@@ -2,6 +2,7 @@ package com.cyj.guang_dian_ren.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,5 +29,14 @@ public class Topic implements Serializable {
 
     private String username;
 
-    private LocalDate date;
+    private String date;
+
+    public Topic(Integer topicId, String title, String username, String date) {
+        this.topicId=topicId;
+        this.title=title;
+        this.username=username;
+        this.date=date;
+    }
+
+    public Topic(){}
 }

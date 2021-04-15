@@ -24,10 +24,14 @@ public class TopicLike implements Serializable {
 
     private String username;
 
-    public TopicLike(Integer topicId, String username) {
+    private String date;
+
+    public TopicLike(Integer topicId, String username,String date) {
         this.username=username;
         this.topicId=topicId;
+        this.date=date;
     }
 
+    public TopicLike(){}
 
 }

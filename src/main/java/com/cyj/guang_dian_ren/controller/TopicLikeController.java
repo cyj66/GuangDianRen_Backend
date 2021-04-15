@@ -2,7 +2,6 @@ package com.cyj.guang_dian_ren.controller;
 
 
 import com.cyj.guang_dian_ren.entity.TopicLike;
-import com.cyj.guang_dian_ren.entity.TopicLike;
 import com.cyj.guang_dian_ren.service.ITopicLikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,20 +32,22 @@ public class TopicLikeController {
     public void save(@RequestBody Map<String,Object> para){
         String username=(String)para.get("username");
         Integer topicId= (Integer) para.get("topicId");
-        TopicLike TopicLike = new TopicLike(topicId,username);
-        TopicLike.setUsername(username);
-        TopicLike.setTopicId(topicId);
-        iTopicLikeService.save(TopicLike);
+        String date=(String)para.get("date");
+        TopicLike topicLike = new TopicLike(topicId,username,date);
+        topicLike.setUsername(username);
+        topicLike.setTopicId(topicId);
+        topicLike.setDate(date);
+        iTopicLikeService.save(topicLike);
     }
 
     @DeleteMapping("/remove")
     public void remove(@RequestBody Map<String,Object> para){
         String username=(String)para.get("username");
-        Integer TopicId= (Integer) para.get("topicId");
+        Integer topicId= (Integer) para.get("topicId");
         Map<String,Object> removeTopicLike = new HashMap<>();
         removeTopicLike.put("username", username);
         //注意不是“TopicId”,要和数据表字段名保持一致
-        removeTopicLike.put("topic_id", TopicId);
+        removeTopicLike.put("topic_id", topicId);
         iTopicLikeService.removeByMap(removeTopicLike);
     }
 }
